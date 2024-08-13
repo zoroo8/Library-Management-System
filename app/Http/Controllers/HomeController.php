@@ -18,11 +18,11 @@ class HomeController extends Controller
         $data = Book::all();
         return view('home.index',compact('data'));
     }
-    public function borrow_books($id){
+    public function borrow_books(Request $request,$id){
         $data = Book::find($id);
         $book_id = $id;
         $quantity = $data->quantity;
-        
+         
         if($quantity >='1'){
             if(Auth::id()){
                 $user = Auth::id();
@@ -30,6 +30,7 @@ class HomeController extends Controller
                 $borrow->book_id = $book_id;
                 $borrow->user_id = $user;
                 $borrow->status = 'Pending';
+                $borrow->return_time = $request ->date;  
                 $borrow->save();
                 return redirect()->back()->with('message','Request Sent Successfully! Admin will approve it soon and you will get a email notification.');
             }

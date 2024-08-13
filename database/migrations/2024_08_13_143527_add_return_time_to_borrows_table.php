@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('borrows', function (Blueprint $table) {
-            $table->integer('return_time')->after('status')->nullable();
+            $table->date('return_time')->after('status');
         });
     }
 

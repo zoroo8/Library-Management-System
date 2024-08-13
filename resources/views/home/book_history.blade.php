@@ -51,14 +51,9 @@
                 <th>Book Author</th>
                 <th>Book Status</th>
                 <th>Book Image</th>
-                @foreach ($data as $data)
-                @if ($data->status =='Pending')
-                <th>Cancel Request</th>
-                @else
                 <th></th>
-                @endif
             </tr>
-                
+            @foreach ($data as $data)
             <tr>
                 <td>{{$data->book->title}}</td>
                 <td>{{$data->book->author_name}}</td>

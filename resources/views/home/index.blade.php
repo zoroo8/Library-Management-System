@@ -35,7 +35,6 @@
   @include('home.main_banner')
   @include('home.category')
   @include('home.book')
-  @include('home.details_popup')
   @include('home.footer')
   
 

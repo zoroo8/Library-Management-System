@@ -40,7 +40,7 @@ route::get('/edit_table/{id}',[AdminController::class,'edit_table'])->middleware
 
 route::post('/update_book/{id}',[AdminController::class,'update_book'])->middleware('admin');
 
-route::get('/borrow_books/{id}',[HomeController::class,'borrow_books']);
+route::post('/borrow_books/{id}',[HomeController::class,'borrow_books']);
 
 route::get('/borrow_request',[AdminController::class,'borrow_request'])->middleware('admin');
 
