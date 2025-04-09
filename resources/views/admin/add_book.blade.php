@@ -90,7 +90,7 @@
                         <input type="file" name="author_img" class="">
                     </div>
                     
-                    <div class="div_pad">
+                    <div class="div_pad">   
                         <input type="submit" value="Add Book" class="btn btn-info">
                     </div>
                 </form>

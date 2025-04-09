@@ -45,11 +45,18 @@ class AdminController extends Controller
     }
 
     public function add_category(Request $request){
-        $data = new Category;
-        $data->cat_title = $request->category;
-        $data->save();
-        return redirect()->back()->with('message','Category Added Successfully');
+    // Validate the request
+    $request->validate([
+        'category' => 'required|string|max:255',  // Make sure the category is required and is a valid string
+    ]);
+
+    // Proceed to insert category if validation passes
+    $data = new Category;
+    $data->cat_title = $request->category;
+    $data->save();
+    return redirect()->back()->with('message', 'Category Added Successfully');
     }
+
     public function cat_delete($id){
         $data= Category::find($id);
         $data->delete();
